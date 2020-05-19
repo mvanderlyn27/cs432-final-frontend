@@ -1,14 +1,27 @@
 import React from 'react';
 import { Button } from 'antd';
+import { Table, Tag, Space } from 'antd';
 
 class Display extends React.Component{
     constructor(props){
       super(props);
-      this.state = {name: "", formSubmitted: false,dbData: {}};
-    }
+      this.cols =  [
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              key: 'name',
+            },
+            {
+              title: 'Gender',
+              dataIndex: 'gender',
+              key: 'gender',
+            },
+          ];
+      }
     render(){
         return(
-            <Button type="primary">Go Back to Form</Button>
+           
+            <h1>{this.props.data.pred}</h1>
             );
     }
 }
