@@ -1,17 +1,17 @@
 import React from 'react';
-import { Table, Button} from 'antd';
-import { Skeleton } from 'antd';
-import { Typography} from 'antd';
+import { Table, Button, Typography, Skeleton} from 'antd';
 const { Text,Title} = Typography;
-
+//component to display output from db (truth table)
 class Display extends React.Component{
     constructor(props){
       super(props);
       this.state = {binary:false}
     }
+    //toggles between displaying T/F as 1/0
   toggleBinary(){
       this.setState({binary:!this.state.binary});
   }
+  //renders form, conditionally renders a skeleton
     render(){
         
         var component;

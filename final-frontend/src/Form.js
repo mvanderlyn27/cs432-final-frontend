@@ -1,7 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Select, Space, notification  } from 'antd';
-import { FormInstance } from 'antd/lib/form';
-import { Typography, Row, Col} from 'antd';
+import { Form, Input, Button, Select, Space, notification, Typography, Row, Col } from 'antd';
 const { Paragraph} = Typography;
 
 const axios = require('axios');
@@ -13,7 +11,7 @@ const layout = {
   const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
   }; 
-const db_url = 'http://localhost:8080/getTruthTable'; //'https://swe432-final-b-end.herokuapp.com/getTruthTable';
+const db_url = 'https://swe432-final-b-end.herokuapp.com/getTruthTable';
 
 
 class FormHolder extends React.Component{
@@ -43,15 +41,16 @@ class FormHolder extends React.Component{
             });
       });
     }
-    
+    //resets form
       onReset = () => {
         this.formRef.current.resetFields();
       };
-      //validates predicate is of proper format
+      //validates predicate is of proper format (DIDN"T HAVE ENOUGH TIME)
     validatePredicate(e){
         let val = e.target.value;
         console.log(val);
     }
+    //renders form component, has error notification on failed upload
     render(){
         return(
             <div>

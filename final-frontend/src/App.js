@@ -1,21 +1,18 @@
 import React from 'react';
 import  FormHolder  from './Form';
 import  Display  from './Display';
-import { Typography, Divider } from 'antd';
-import { Layout } from 'antd';
-import { Menu } from 'antd';
-import { CloudUploadOutlined, DatabaseOutlined } from '@ant-design/icons';
-import { Row, Col } from 'antd';
-
+import { Typography,Layout,Menu,Row, Col  } from 'antd';
+import { CloudUploadOutlined, TableOutlined } from '@ant-design/icons';
 import './App.css';
-const { Title, Paragraph, Text } = Typography;
-const { Header, Footer, Sider, Content } = Layout;
+const { Title } = Typography;
+const { Content } = Layout;
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {name: "", currentState: "form", formSubmitted: false, dataRecieved: false, dbData: {}};
   }
+  //misc helper functions
   handleClick = e => {
     console.log('click ', e);
     this.setState({
@@ -36,8 +33,9 @@ class App extends React.Component{
     console.log('failed');
     this.setState({formSubmitted:false,dataRecieved:false,currentState:"form"});
   }
-  
+  //main render function
   render(){
+    //conditionally renders form, or display components
     let conditional;
     if (this.state.currentState==="form"){
       conditional = <FormHolder onSuccess={this.successfulUpload.bind(this)} onFail={this.failedUpload.bind(this)} onStart={this.startedUpload.bind(this)}/>;
@@ -55,7 +53,7 @@ class App extends React.Component{
         <Menu.Item key="form" icon={<CloudUploadOutlined />}>
           Submit Predicate
         </Menu.Item>
-        <Menu.Item key="data" icon={<DatabaseOutlined />}>
+        <Menu.Item key="data" icon={<TableOutlined />}>
           View Truth Table
         </Menu.Item>
         </Menu>
