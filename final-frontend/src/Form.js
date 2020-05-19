@@ -45,7 +45,9 @@ class FormHolder extends React.Component{
       onReset = () => {
         this.formRef.current.resetFields();
       };
-      //validates predicate is of proper format (DIDN"T HAVE ENOUGH TIME)
+      //further validates of predicate, not really needed
+      //because any symbol can be entered, will just be part of a 
+      //clause 
     validatePredicate(e){
         let val = e.target.value;
         console.log(val);

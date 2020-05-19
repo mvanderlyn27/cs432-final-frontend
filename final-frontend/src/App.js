@@ -10,7 +10,7 @@ const { Content } = Layout;
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {name: "", currentState: "form", formSubmitted: false, dataRecieved: false, dbData: {}};
+    this.state = {name: "", currentState: "form", formSubmitted: false, dataRecieved: false, dbData: null};
   }
   //misc helper functions
   handleClick = e => {
