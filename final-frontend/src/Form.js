@@ -13,7 +13,7 @@ const layout = {
   const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
   }; 
-const db_url =  'https://swe432-final-b-end.herokuapp.com/getTruthTable'; //'http://localhost:8080/getTruthTable';
+const db_url = 'http://localhost:8080/getTruthTable'; //'https://swe432-final-b-end.herokuapp.com/getTruthTable';
 
 
 class FormHolder extends React.Component{
@@ -47,7 +47,11 @@ class FormHolder extends React.Component{
       onReset = () => {
         this.formRef.current.resetFields();
       };
-    
+      //validates predicate is of proper format
+    validatePredicate(e){
+        let val = e.target.value;
+        console.log(val);
+    }
     render(){
         return(
             <div>
@@ -57,7 +61,8 @@ class FormHolder extends React.Component{
                     <Typography>
                         <Paragraph>
                             Enter a predicate sentance below, clauses can be any word/group of letter,
-                             logical operators accepted are &, |, ~ 
+                             logical operators accepted are: &, &&, AND, and , |, ||, OR, or, ~ , !, NOT, not
+                             , XOR, ^
                         </Paragraph>
                     </Typography>
                 </Col>
@@ -65,9 +70,9 @@ class FormHolder extends React.Component{
                 <Col span={4}/>
 
             </Row>
-<Form  ref={this.formRef} name="control-ref" onFinish={this.onFinish.bind(this)}>
+<Form  ref={this.formRef} name="control-ref"  onFinish={this.onFinish.bind(this)}>
         <Form.Item name="pred" label="Predicate Statement" rules={[{ required: true }]}>
-          <Input />
+          <Input onKeyUp={this.validatePredicate}/>
         </Form.Item>
         
         <Form.Item >
