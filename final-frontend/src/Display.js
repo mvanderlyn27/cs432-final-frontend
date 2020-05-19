@@ -15,7 +15,7 @@ class Display extends React.Component{
     render(){
         
         var component;
-        if(this.props.data.data){
+        if(this.props.data){
         let cols = this.props.data.data[0];
         let data = this.props.data.data.slice(1,this.props.data.data.length);
         console.log(data);
